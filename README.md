@@ -108,7 +108,7 @@ When the base URL is defined it's still possible to embed documents stored in an
 
 The default language can be set in the admin panel, but it can be overridden by using the lang variable. When using the lang variable, the code of the selected language must be given as a parameter. Below there's a list of languages supported by Google Docs Viewer.
 
-**NB!** The language setting can be used with Google Docs Viewer only, and it doesn't work with documents stored in Google Docs. How to change your Google Docs language setting: [instructions](http://support.google.com/drive/bin/answer.py?hl=en&amp;answer=75940).
+**NB!** The language setting can be used with Google Docs Viewer only, and it doesn't work with documents stored in Google Docs.
 
 <table>
 	<tbody>
