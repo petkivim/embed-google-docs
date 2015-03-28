@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="content" method="upgrade">
+    <name>Content - Embed Google Docs Viewer</name>
+    <author>Petteri Kivimäki</author>
+    <creationDate>21 March 2015</creationDate>
+    <copyright>(C)2012-2015 Petteri Kivimäki</copyright>
+    <license>http://www.gnu.org/copyright/gpl.html GNU/GPL</license>
+    <authorEmail>petteri.kivimaki@helsinki.fi</authorEmail>
+    <version>1.4.2</version>
+    <description>PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC</description>
+	<files>
+        <filename plugin="embed_google_docs_viewer">embed_google_docs_viewer.php</filename>
+		<filename>index.html</filename>
+		<filename>license-gpl.txt</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_content_embed_google_docs_viewer.ini</language>
+        <language tag="en-GB">en-GB.plg_content_embed_google_docs_viewer.sys.ini</language>
+	</languages>
+    <config>
+		<fields name="params">
+
+			<fieldset name="basic">
+										
+				<field name="base_url" type="text"
+					default=""
+					size="60"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_BASE_URL"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_BASE_URL"
+				/>				
+				
+				<field name="add_link" type="radio"
+					default="1"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_ADD_LINK"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_ADD_LINK"
+				>
+					<option value="0">PLG_EMBED_GOOGLE_DOCS_VIEWER_SW_YES</option>
+					<option value="1">PLG_EMBED_GOOGLE_DOCS_VIEWER_SW_NO</option>
+				</field>
+				
+				<field name="link_label" type="text"
+					default="View in full screen"
+					size="60"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_LINK_LABEL"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_LINK_LABEL"
+				/>
+
+				<field name="google_docs_mode" type="list"
+					default="0"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_GOOGLE_DOCS_MODE"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_GOOGLE_DOCS_MODE"
+				>	
+					<option value="0">Default</option>
+					<option value="1">Edit</option>
+					<option value="2">Preview</option>
+				</field>
+				
+				<field name="height" type="text"
+					default="400"
+					size="6"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_HEIGHT"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_HEIGHT"
+				/>
+							
+				<field name="width" type="text"
+					default="300"
+					size="6"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_WIDTH"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_WIDTH"
+				/>
+				
+				<field name="border" type="list"
+					default="0"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_BORDER"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_BORDER"
+				>	
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</field>
+				
+				<field name="border_style" type="list"
+					default="solid"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_BORDER_STYLE"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_BORDER_STYLE"
+				>	
+					<option value="none">none</option>
+					<option value="hidden">hidden</option>
+					<option value="dotted">dotted</option>
+					<option value="dashed">dashed</option>
+					<option value="solid">solid</option>
+					<option value="double">double</option>
+				</field>	
+				
+				<field name="border_color" type="text"
+					default="#000000"
+					size="7"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_BORDER_COLOR"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_BORDER_COLOR"
+				/>
+				
+				<field name="https" type="radio"
+					default="1"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_HTTPS"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_HTTPS"
+				>
+					<option value="0">PLG_EMBED_GOOGLE_DOCS_VIEWER_SW_YES</option>
+					<option value="1">PLG_EMBED_GOOGLE_DOCS_VIEWER_SW_NO</option>
+				</field>				
+			</fieldset>
+			
+			<fieldset name="GOOGLE_DOCS_VIEWER" label="PLG_EMBED_GOOGLE_DOCS_VIEWER_FIELDSET_LABEL">
+				<field name="language" type="list"
+					default="-"
+					description="PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC_LANG"
+					label="PLG_EMBED_GOOGLE_DOCS_VIEWER_LBL_LANG"
+				>
+					<option value="-">Undefined</option>
+					<option value="system">System language</option>
+					<option value="ar">Arabic</option>
+					<option value="eu">Basque</option>
+					<option value="bn">Bengali</option>
+					<option value="bg">Bulgarian</option>					
+					<option value="ca">Catalan</option>
+					<option value="zh-CN">Chinese (simplified)</option>
+					<option value="zh-TW">Chinese (traditional)</option>					
+					<option value="hr">Croatian</option>
+					<option value="cs">Czech</option>
+					<option value="da">Danish</option>
+					<option value="nl">Dutch</option>
+					<option value="en">English</option>
+					<option value="en-AU">English (Australian)</option>
+					<option value="en-GB">English (Great Britain)</option>
+					<option value="fa">Farsi</option>
+					<option value="fil">Filipino</option>
+					<option value="fi">Finnish</option>					
+					<option value="fr">French</option>
+					<option value="gl">Galician</option>
+					<option value="de">German</option>									
+					<option value="el">Greek</option>	
+					<option value="gu">Gujarati</option>					
+					<option value="iw">Hebrew</option>
+					<option value="hi">Hindi</option>
+					<option value="hu">Hungarian</option>
+					<option value="id">Indonesian</option>
+					<option value="it">Italian</option>					
+					<option value="ja">Japanese</option>
+					<option value="kn">Kannada</option>
+					<option value="ko">Korean</option>
+					<option value="lv">Latvian</option>
+					<option value="lt">Lithuanian</option>					
+					<option value="ml">Malayalam</option>				
+					<option value="mr">Marathi</option>
+					<option value="no">Norwegian</option>
+					<option value="nn">Norwegian Nynorsk</option>					
+					<option value="or">Oriya</option>
+					<option value="pl">Polish</option>
+					<option value="pt">Portuguese</option>
+					<option value="pt-BR">Portuguese (Brazil)</option>
+					<option value="pt-PT">Portuguese (Portugal)</option>
+					<option value="ro">Romanian</option>
+					<option value="rm">Romansch</option>					
+					<option value="ru">Russian</option>
+					<option value="sk">Slovak</option>
+					<option value="sl">Slovenian</option>
+					<option value="sr">Serbian</option>
+					<option value="es">Spanish</option>
+					<option value="sv">Swedish</option>
+					<option value="tl">Tagalog</option>
+					<option value="ta">Tamil</option>
+					<option value="te">Telugu</option>
+					<option value="th">Thai</option>
+					<option value="tr">Turkish</option>
+					<option value="uk">Ukrainian</option>
+					<option value="vi">Vietnamese</option>
+				</field>				
+			</fieldset>
+		</fields>
+	</config>
+</extension>
