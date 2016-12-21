@@ -2,11 +2,11 @@
 <extension version="1.6" type="plugin" group="content" method="upgrade">
     <name>Content - Embed Google Docs Viewer</name>
     <author>Petteri Kivimäki</author>
-    <creationDate>21 March 2015</creationDate>
-    <copyright>(C)2012-2015 Petteri Kivimäki</copyright>
+    <creationDate>21 December 2016</creationDate>
+    <copyright>(C)2012-2016 Petteri Kivimäki</copyright>
     <license>http://www.gnu.org/copyright/gpl.html GNU/GPL</license>
     <authorEmail>petteri.kivimaki@helsinki.fi</authorEmail>
-    <version>1.4.2</version>
+    <version>1.4.3</version>
     <description>PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC</description>
 	<files>
         <filename plugin="embed_google_docs_viewer">embed_google_docs_viewer.php</filename>
