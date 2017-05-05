@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @version		$Id: Embed Google Docs Viewer v1.4.3 2016-12-21 21:40 $
+ * @version		$Id: Embed Google Docs Viewer v1.4.4 2017-05-05 21:40 $
  * @package		Joomla 1.6
- * @copyright           Copyright (C) 2012-2015 Petteri Kivimäki. All rights reserved.
+ * @copyright           Copyright (C) 2012-2017 Petteri Kivimäki. All rights reserved.
  * @author		Petteri Kivimäki
  * Joomla! is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
