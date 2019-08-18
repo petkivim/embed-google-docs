@@ -1,2 +1,2 @@
-*.zip
+src/*.zip
 .DS_Store
