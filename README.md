@@ -13,7 +13,7 @@ Embed Google Docs Viewer is a plugin for embedding one or more Google Docs Viewe
 * Define the border width, border style and border color.
 * Add link to the full screen version.
 * Define the link label and link position (above or below the document).
-** `top` => above, `bottom` => below (default)
+  * `top` => above, `bottom` => below (default)
 * Support for HTTP and HTTPS (with Google Docs Viewer only).
 * Multilingual features for front-end:
 ** Use the system language as Google Docs Viewer language (with Google Docs Viewer only).
