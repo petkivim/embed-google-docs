@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @version		$Id: Embed Google Docs Viewer v1.4.4 2017-05-05 21:40 $
+ * @version		$Id: Embed Google Docs Viewer v1.5.0 2019-08-18 07:20 $
  * @package		Joomla 1.6
- * @copyright           Copyright (C) 2012-2017 Petteri Kivimäki. All rights reserved.
- * @author		Petteri Kivimäki
+ * @copyright           Copyright (C) 2012-2019 Petteri KivimÃ¤ki. All rights reserved.
+ * @author		Petteri KivimÃ¤ki
  * Joomla! is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
  * is derivative of works licensed under the GNU General Public License or
@@ -37,6 +37,7 @@ class plgContentembed_google_docs_viewer extends JPlugin {
         if ($found) {
             foreach ($matches[0] as $value) {
                 $add_link = $this->params->def('add_link', 1);
+                $link_position = $this->params->def('link_position', 'bottom');
                 $link_label = $this->params->def('link_label', 'View in full screen');
                 $language = $this->params->def('language', '-');
                 $height = $this->params->def('height', 300);
@@ -100,6 +101,16 @@ class plgContentembed_google_docs_viewer extends JPlugin {
                                 $add_link = 0;
                             } else {
                                 $add_link = 1;
+                            }
+                        }
+
+                        if (strstr(strtolower($phrase), 'link_position:')) {
+                            $tpm1 = explode(':', $phrase);
+                            $tmp1 = trim($tpm1[1], '"');
+                            if (strcmp(strtolower($tmp1), 'top') == 0) {
+                                $link_position = "top";
+                            } else {
+                                $link_position = "bottom";
                             }
                         }
 
@@ -253,11 +264,14 @@ class plgContentembed_google_docs_viewer extends JPlugin {
                 }
 
                 if ($add_link == 0) {
+                    $html = $replacement[$count];
+                    $link_html = "";
                     if (preg_match($pattern_google_docs, $doc_path)) {
-                        $replacement[$count] .= "<div><a href='$doc_path_link' target='new'>$link_label</a></div>\n";
+                        $link_html = "<div><a href='$doc_path_link' target='new'>$link_label</a></div>\n";
                     } else {
-                        $replacement[$count] .= "<div><a href='$google_viewer_url$doc_path_link' target='new'>$link_label</a></div>\n";
+                        $link_html = "<div><a href='$google_viewer_url$doc_path_link' target='new'>$link_label</a></div>\n";
                     }
+                    $replacement[$count] = strcmp(strtolower($link_position), 'top') === 0 ? $link_html . $html : $html . $link_html;
                 }
                 $count++;
             }
