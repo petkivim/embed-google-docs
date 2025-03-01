@@ -2,6 +2,8 @@
 
 Embed Google Docs Viewer is a plugin for embedding one or more Google Docs Viewers to Joomla articles. By using Google Docs Viewer it's possible to quickly view documents online without leaving browser. Adding Google Docs Viewer to an article is very simple, just add the url of the document that you want to embed, and that's it! It's also possible to define the size of the document, mode of the reader (preview/edit), border layout and link to the full size document.
 
+**Note**: Embed Google Docs Viewer versions >= 2.0.0 support Joomla 4 and later. Instead, Embed Google Docs Viewer versions < 2.0.0 support Joomla 1.6, Joomla 2.5, Joomla 3, Joomla 4 and Joomla 5, but the compatibility plugin must be enabled on Joomla 5.
+
 ## Features
 
 * It's possible to embed one or more Google Docs Viewer within an article.
