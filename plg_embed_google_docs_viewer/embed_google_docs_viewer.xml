@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<extension version="1.6" type="plugin" group="content" method="upgrade">
+<extension type="plugin" group="content" method="upgrade">
     <name>Content - Embed Google Docs Viewer</name>
     <author>Petteri Kivimäki</author>
-    <creationDate>18 Aug 2019</creationDate>
-    <copyright>(C)2012-2019 Petteri Kivimäki</copyright>
-    <license>http://www.gnu.org/copyright/gpl.html GNU/GPL</license>
-    <authorEmail>petteri.kivimaki@helsinki.fi</authorEmail>
-    <version>1.5.0</version>
+    <creationDate>01 Mar 2025</creationDate>
+    <copyright>(C)2012-2025 Petteri Kivimäki</copyright>
+    <license>GNU General Public License version 3; see LICENSE</license>
+    <authorEmail>dinky_jackson@hotmail.com</authorEmail>
+    <version>2.0.0</version>
     <description>PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC</description>
+	<namespace path="src">Joomla\Plugin\Content\EmbedGoogleDocsViewer</namespace>
 	<files>
-        <filename plugin="embed_google_docs_viewer">embed_google_docs_viewer.php</filename>
-		<filename>index.html</filename>
-		<filename>license-gpl.txt</filename>
+		<folder>language</folder>
+        <folder plugin="embed_google_docs_viewer">services</folder>
+        <folder>src</folder>
 	</files>
-	<languages>
-		<language tag="en-GB">en-GB.plg_content_embed_google_docs_viewer.ini</language>
-        <language tag="en-GB">en-GB.plg_content_embed_google_docs_viewer.sys.ini</language>
-	</languages>
     <config>
 		<fields name="params">
 

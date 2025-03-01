@@ -1,37 +1,49 @@
 <?php
+namespace Joomla\Plugin\Content\EmbedGoogleDocsViewer\Extension;
 
 /**
- * @version		$Id: Embed Google Docs Viewer v1.5.0 2019-08-18 07:20 $
- * @package		Joomla 1.6
- * @copyright           Copyright (C) 2012-2019 Petteri Kivimäki. All rights reserved.
- * @author		Petteri Kivimäki
- * Joomla! is free software. This version may have been modified pursuant
- * to the GNU General Public License, and as distributed it includes or
- * is derivative of works licensed under the GNU General Public License or
- * other free or open source software licenses.
+ * @copyright   Copyright (C) 2012-2025 Petteri Kivimäki. All rights reserved.
+ * @license     GNU General Public License version 3; see LICENSE
+ * @author      Petteri Kivimäki
  */
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.plugin.plugin');
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\Event\Event;
+use Joomla\Event\SubscriberInterface;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Event\Result\ResultAwareInterface;
+use Joomla\CMS\Uri\Uri;
 
-class plgContentembed_google_docs_viewer extends JPlugin {
+class EmbedGoogleDocsViewer extends CMSPlugin implements SubscriberInterface {
 
-    function __construct(&$subject, $params) {
-        parent::__construct($subject, $params);
+    public static function getSubscribedEvents(): array
+    {
+        return [
+                'onContentPrepare' => 'onContentPrepare',   
+                ];
     }
 
-    function onContentPrepare($context, &$row, &$params, $limitstart) {
-        $output = $row->text;
+    function onContentPrepare(Event $event) {
+        if (!$this->getApplication()->isClient('site')) {
+            return;
+        }
+
+        // Get arguments - Joomla 4 and Joomla 5 are supported
+        [$context, $article, $params, $page] = array_values($event->getArguments());
+        if ($context !== "com_content.article" && $context !== "com_content.featured") return;
+
+        $output = $article->text;
         $regex = "#{google_docs}(.*?){/google_docs}#s";
         $found = preg_match_all($regex, $output, $matches);
 
         // Set variables
-        //$pattern_google_docs = '/^http(s|):\/\/docs\.google\.com/i';
         $pattern_google_docs = '/^http(s|):\/\/(docs|drive)\.google\.com/i';
         $pattern_url = '/^http(s|):\/\//i';
 
         // Load plugin params info
-        $base_url = $this->params->def('base_url', JURI::base());
+        $base_url = $this->params->def('base_url', Uri::base());
         $count = 0;
 
         if ($found) {
@@ -276,10 +288,11 @@ class plgContentembed_google_docs_viewer extends JPlugin {
                 $count++;
             }
             for ($i = 0; $i < count($replacement); $i++) {
-                $row->text = preg_replace($regex, $replacement[$i], $row->text, 1);
+                $output = preg_replace($regex, $replacement[$i], $output, 1);
             }
         }
-        return true;
+        // Update the article text with the processed text
+        $article->text = $output;
     }
 
 }
