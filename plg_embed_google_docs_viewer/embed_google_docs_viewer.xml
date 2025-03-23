@@ -2,11 +2,11 @@
 <extension type="plugin" group="content" method="upgrade">
     <name>Content - Embed Google Docs Viewer</name>
     <author>Petteri Kivimäki</author>
-    <creationDate>01 Mar 2025</creationDate>
+    <creationDate>23 Mar 2025</creationDate>
     <copyright>(C)2012-2025 Petteri Kivimäki</copyright>
     <license>GNU General Public License version 3; see LICENSE</license>
     <authorEmail>dinky_jackson@hotmail.com</authorEmail>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <description>PLG_EMBED_GOOGLE_DOCS_VIEWER_DESC</description>
 	<namespace path="src">Joomla\Plugin\Content\EmbedGoogleDocsViewer</namespace>
 	<files>
