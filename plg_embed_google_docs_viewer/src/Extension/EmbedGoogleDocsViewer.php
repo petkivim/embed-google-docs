@@ -21,7 +21,7 @@ class EmbedGoogleDocsViewer extends CMSPlugin implements SubscriberInterface {
     public static function getSubscribedEvents(): array
     {
         return [
-                'onContentPrepare' => 'onContentPrepare',   
+                'onContentPrepare' => 'onContentPrepare',
                 ];
     }
 
@@ -164,7 +164,7 @@ class EmbedGoogleDocsViewer extends CMSPlugin implements SubscriberInterface {
                 $doc_path_link = $doc_path;
 
                 if (strcmp($language, 'system') == 0) {
-                    $lng = JFactory::getLanguage();
+                    $lng = Factory::getApplication()->getLanguage();
                     $langtag = $lng->getTag();
                     $langprfx = explode('-', $langtag);
                     $language = "&hl=" . $langprfx[0];
