@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.2 - 2026-02-28
+- Fix minor compatibility bug (#37).
+
 ## 2.0.1 - 2025-03-23
 - Remove context-related restrictions.
   - Before, only `com_content.article` and `com_content.featured` contexts were enabled.

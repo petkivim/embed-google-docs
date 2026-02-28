@@ -2,7 +2,7 @@
 namespace Joomla\Plugin\Content\EmbedGoogleDocsViewer\Extension;
 
 /**
- * @copyright   Copyright (C) 2012-2025 Petteri Kivimäki. All rights reserved.
+ * @copyright   Copyright (C) 2012-2026 Petteri Kivimäki. All rights reserved.
  * @license     GNU General Public License version 3; see LICENSE
  * @author      Petteri Kivimäki
  */
